@@ -34,4 +34,3 @@ function displayUser(user){
 
 
 // fetchUser()
-
