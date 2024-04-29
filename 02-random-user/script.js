@@ -4,7 +4,7 @@ const body = document.querySelector('body')
 const carBody = document.querySelector('.card-body')
 const img = document.querySelector('.card-img-top')
 
-// gen.addEventListener('click', displayUser)
+gen.addEventListener('click', fetchUser)
 
 function fetchUser(){
     fetch('https://randomuser.me/api')
@@ -24,11 +24,14 @@ function displayUser(user){
 
     img.setAttribute('src',`${user.picture.large}`)
     carBody.innerHTML=`
-    <h5 class="card-title name">${user.name.first}</h5>
-            <p class="card-text"><strong>Address : </strong>City: ${user.location.city}, ${user.location.country}, ${user.location.postcode},${user.location.state}, ${user.location.street.number}</p>
-    `
+    <h5 class="card-title name">${user.name.first} ${user.name.last}</h5>
+            <p class="card-text">
+            <hr>
+            <strong>Address : </strong> ${user.location.city}, ${user.location.country}, ${user.location.postcode},${user.location.state}, ${user.location.street.number}</p>
+            <hr>
+            <strong>Contact : </strong> ${user.phone}`
 }
 
 
-fetchUser()
+// fetchUser()
 
